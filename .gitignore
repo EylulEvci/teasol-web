@@ -1,0 +1,15 @@
+# Go derleme çıktıları
+/bin/
+/out/
+teasol
+teasol.exe
+
+# Frontend
+web/node_modules/
+web/.vite/
+*.tsbuildinfo
+
+# Editör / işletim sistemi
+.DS_Store
+Thumbs.db
+.vscode/
