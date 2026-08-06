@@ -1,0 +1,12 @@
+{
+  "brand": {
+    "name": "TEASOL",
+    "tagline": "Next-gen Network & Slice Exchange"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Solutions", "href": "/solutions" },
+    { "label": "About", "href": "/about" },
+    { "label": "Contact", "href": "/contact" }
+  ]
+}
