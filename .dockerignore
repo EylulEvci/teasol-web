@@ -1,0 +1,14 @@
+# Git geçmişi — imajda işi yok, commit atınca cache'i boşuna bozuyor
+.git
+.gitignore
+
+# Dockerfile'ın kendisi imaja girmesin
+Dockerfile
+.dockerignore
+
+# Derleme çıktıları — imaj içinde zaten yeniden derliyoruz
+*.exe
+teasol
+
+# İlerde React gelince: ~200 MB, her build'de transfer edilmesin
+web/node_modules
