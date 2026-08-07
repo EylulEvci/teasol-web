@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"net/http"
 	"os"
 
 	"teasol.com/site/internal/content"
@@ -14,12 +16,28 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("Brand : %s\n", site.Brand.Name)
-	fmt.Printf("Tagline : %s\n", site.Brand.Tagline)
+	mux := http.NewServeMux()
 
-	fmt.Println("Nav :   ")
-	for _, link := range site.Nav {
-		fmt.Printf(" %-10s -> %s\n", link.Label, link.Href)
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		fmt.Fprintf(w, "%s- %s\n", site.Brand.Name, site.Brand.Tagline)
+	})
+
+	mux.HandleFunc("/api/v1/content/site", func(w http.ResponseWriter, r *http.Request) {
+		body, err := json.Marshal(site)
+		if err != nil {
+			http.Error(w, "could not encode content", http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Write(body)
+	})
+
+	fmt.Println("listening on http://localhost:8081")
+
+	if err := http.ListenAndServe(":8081", mux); err != nil {
+		fmt.Fprintf(os.Stderr, "serve error: %v\n", err)
+		os.Exit(1)
 	}
 
 }
