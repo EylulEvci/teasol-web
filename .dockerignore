@@ -12,3 +12,6 @@ teasol
 
 # İlerde React gelince: ~200 MB, her build'de transfer edilmesin
 web/node_modules
+
+# Frontend derleme çıktısı — imaj içinde yeniden üretiliyor
+internal/web/dist

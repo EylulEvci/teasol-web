@@ -1,0 +1,13 @@
+services:
+  site:
+    build: .
+    image: teasol-eylul:dev
+    container_name: teasol-eylul
+    environment:
+      PORT: "8081" 
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+    
+

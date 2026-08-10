@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"teasol.com/site/internal/content"
+	"teasol.com/site/internal/web"
 )
 
 func main() {
@@ -18,9 +19,13 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "%s- %s\n", site.Brand.Name, site.Brand.Tagline)
-	})
+	staticFS, err := web.FS()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+
+	mux.Handle("/", http.FileServer(http.FS(staticFS)))
 
 	mux.HandleFunc("/api/v1/content/site", func(w http.ResponseWriter, r *http.Request) {
 		body, err := json.Marshal(site)
@@ -33,9 +38,19 @@ func main() {
 		w.Write(body)
 	})
 
-	fmt.Println("listening on http://localhost:8081")
+	mux.HandleFunc("/healthz", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		w.Write([]byte(`{"status":"ok"}`))
+	})
 
-	if err := http.ListenAndServe(":8081", mux); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8081"
+	}
+
+	fmt.Println("listening on http://localhost:" + port)
+
+	if err := http.ListenAndServe(":"+port, mux); err != nil {
 		fmt.Fprintf(os.Stderr, "serve error: %v\n", err)
 		os.Exit(1)
 	}
