@@ -3,8 +3,10 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/fs"
 	"net/http"
 	"os"
+	"strings"
 
 	"teasol.com/site/internal/content"
 	"teasol.com/site/internal/web"
@@ -25,7 +27,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	mux.Handle("/", http.FileServer(http.FS(staticFS)))
+	mux.Handle("/", spaHandler(staticFS))
 
 	mux.HandleFunc("/api/v1/content/site", func(w http.ResponseWriter, r *http.Request) {
 		body, err := json.Marshal(site)
@@ -55,4 +57,23 @@ func main() {
 		os.Exit(1)
 	}
 
+}
+
+// spaHandler statik dosyaları sunar; dosya bulunamazsa index.html döner,
+// böylece istemci tarafındaki router adresi çözebilir.
+func spaHandler(fsys fs.FS) http.Handler {
+	fileServer := http.FileServer(http.FS(fsys))
+
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		name := strings.TrimPrefix(r.URL.Path, "/")
+		if name == "" {
+			name = "index.html"
+		}
+
+		if _, err := fs.Stat(fsys, name); err != nil {
+			r.URL.Path = "/"
+		}
+
+		fileServer.ServeHTTP(w, r)
+	})
 }
