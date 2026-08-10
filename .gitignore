@@ -13,3 +13,6 @@ web/.vite/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Frontend derleme çıktısı — npm run build üretir
+internal/web/dist/
