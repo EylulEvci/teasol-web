@@ -13,7 +13,7 @@ import (
 )
 
 func main() {
-	site, err := content.Load()
+	bundle, err := content.Load()
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "error: %v\n", err)
 		os.Exit(1)
@@ -29,10 +29,27 @@ func main() {
 
 	mux.Handle("/", spaHandler(staticFS))
 
+	// ?lang=tr gibi bir parametre bekler; bilinmeyen dilde İngilizceye düşer
 	mux.HandleFunc("/api/v1/content/site", func(w http.ResponseWriter, r *http.Request) {
+		site, lang := bundle.Site(r.URL.Query().Get("lang"))
+
 		body, err := json.Marshal(site)
 		if err != nil {
 			http.Error(w, "could not encode content", http.StatusInternalServerError)
+			return
+		}
+
+		w.Header().Set("Content-Type", "application/json; charset=utf-8")
+		// hangi dilin döndüğünü istemciye bildir
+		w.Header().Set("Content-Language", lang)
+		w.Write(body)
+	})
+
+	// istemci hangi dillerin mevcut olduğunu buradan öğrenir
+	mux.HandleFunc("/api/v1/content/languages", func(w http.ResponseWriter, r *http.Request) {
+		body, err := json.Marshal(bundle.Languages())
+		if err != nil {
+			http.Error(w, "could not encode languages", http.StatusInternalServerError)
 			return
 		}
 

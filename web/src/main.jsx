@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink, useLocation } from 'react-router-dom'
 
 import './index.css'
 
@@ -10,6 +10,13 @@ const SOLUTION_COLORS = [
   { main: '#4f46e5', soft: '#eeedfd' },
   { main: '#7c3aed', soft: '#f3edff' },
 ]
+
+// gorsel yollari sunum detayi, o yuzden icerik JSON'unda degil burada
+const CITY_IMAGES = {
+  Eindhoven: '/img/city-eindhoven.jpg',
+  Istanbul: '/img/city-istanbul.jpg',
+  Sunnyvale: '/img/city-sunnyvale.jpg',
+}
 
 const ICONS = {
   venue: (
@@ -92,12 +99,41 @@ function Icon({ name }) {
   )
 }
 
-function Layout({ site, children }) {
+const LANG_LABELS = { en: 'EN', nl: 'NL', tr: 'TR' }
+
+function LangSwitch({ langs, lang, onChange }) {
+  if (langs.length < 2) return null
+
   return (
-    <div className="page">
+    <div className="lang-switch" role="group" aria-label="Language">
+      {langs.map((code) => (
+        <button
+          key={code}
+          type="button"
+          className={code === lang ? 'active' : undefined}
+          aria-pressed={code === lang}
+          onClick={() => onChange(code)}
+        >
+          {LANG_LABELS[code] ?? code.toUpperCase()}
+        </button>
+      ))}
+    </div>
+  )
+}
+
+function Layout({ site, langs, lang, onLangChange, children }) {
+  const { pathname } = useLocation()
+  const pageClass =
+    pathname === '/solutions' ? 'p-solutions'
+    : pathname === '/about' ? 'p-about'
+    : pathname === '/contact' ? 'p-contact'
+    : 'p-home'
+
+  return (
+    <div className={`page ${pageClass}`}>
       <header className="site-header">
         <NavLink to="/" className="brand">
-          {site.brand.name}
+          <img src="/logo.png" alt={site.brand.name} />
         </NavLink>
         <nav>
           {site.nav.map((link) => (
@@ -105,6 +141,7 @@ function Layout({ site, children }) {
               {link.label}
             </NavLink>
           ))}
+          <LangSwitch langs={langs} lang={lang} onChange={onLangChange} />
         </nav>
       </header>
 
@@ -125,6 +162,17 @@ function Home({ site }) {
   return (
     <>
       <section className="hero hero-home">
+        <video
+          className="hero-video"
+          src="/video/hero.mp4"
+          poster="/video/hero-poster.jpg"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          aria-hidden="true"
+        />
         <div className="wrap">
           <p className="eyebrow">{site.brand.tagline}</p>
           <h1>{title}</h1>
@@ -206,6 +254,30 @@ function About({ site }) {
         </div>
       </section>
 
+      <section className="wrap section">
+        <h2 className="sub">Where We Work</h2>
+        <div className="cities">
+          {site.contact.offices.map((o) => (
+            <figure key={o.city} className="city">
+              <img
+                src={CITY_IMAGES[o.city]}
+                alt={`${o.city}, ${o.country}`}
+                loading="lazy"
+              />
+              <figcaption>
+                <strong>{o.city}</strong>
+                <span>{o.country}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <p className="credits">
+          Istanbul photo by Moonik · Sunnyvale photo by Vadim Manuylov · both{' '}
+          <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
+          , via Wikimedia Commons
+        </p>
+      </section>
+
       <section className="stats-band">
         <div className="wrap">
           <div className="stats">
@@ -285,18 +357,33 @@ function NotFound() {
 
 function App() {
   const [site, setSite] = useState(null)
+  const [langs, setLangs] = useState([])
+  // tarayici hatirlasin, sayfa yenilenince dil kaybolmasin
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en')
 
+  // mevcut diller bir kez cekilir
   useEffect(() => {
-    fetch('/api/v1/content/site')
+    fetch('/api/v1/content/languages')
+      .then((res) => res.json())
+      .then(setLangs)
+      .catch(() => setLangs(['en']))
+  }, [])
+
+  // dil degistikce icerik yeniden cekilir
+  useEffect(() => {
+    localStorage.setItem('lang', lang)
+    document.documentElement.lang = lang
+
+    fetch(`/api/v1/content/site?lang=${encodeURIComponent(lang)}`)
       .then((res) => res.json())
       .then(setSite)
-  }, [])
+  }, [lang])
 
   if (!site) return <p className="wrap section">Yükleniyor…</p>
 
   return (
     <BrowserRouter>
-      <Layout site={site}>
+      <Layout site={site} langs={langs} lang={lang} onLangChange={setLang}>
         <Routes>
           <Route path="/" element={<Home site={site} />} />
           <Route path="/solutions" element={<Solutions site={site} />} />

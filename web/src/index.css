@@ -2,12 +2,13 @@
 
 :root {
   --bg: #ffffff;
-  --surface: #f6f8fc;
+  --surface: #e9eff9;
   --line: #e3e9f3;
   --fg: #0a1020;
   --fg-muted: #46536c;
   --accent: #1d4ed8;
   --accent-soft: #eef3ff;
+  --header-h: 72px;
 }
 
 /* ---------- temel ---------- */
@@ -35,8 +36,11 @@ body {
   flex-direction: column;
 }
 
+/* header'in arkasina kadar uzat */
 main {
   flex: 1;
+  margin-top: calc(-1 * var(--header-h));
+   background: linear-gradient(to bottom, #fff 0%, #fff 62%, var(--surface) 100%);
 }
 
 .wrap {
@@ -50,6 +54,11 @@ main {
   padding-block: 4rem;
 }
 
+/* hero'su olmayan sayfalar (404) header'in altina girmesin */
+main > .section:first-child {
+  padding-block: calc(4rem + var(--header-h)) 4rem;
+}
+
 /* ---------- ust menu ---------- */
 
 .site-header {
@@ -60,23 +69,62 @@ main {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1rem 2rem;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
+  height: var(--header-h);
+  padding-inline: 2rem;
+  background: transparent;
 }
 
 .brand {
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  color: var(--fg);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.brand img {
+  display: block;
+  height: 34px;
+  width: auto;
 }
 
 .site-header nav {
   display: flex;
+  align-items: center;
   gap: 0.25rem;
+}
+
+/* ---------- dil secici ---------- */
+
+.lang-switch {
+  display: flex;
+  gap: 2px;
+  margin-left: 0.75rem;
+  padding: 3px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.lang-switch button {
+  padding: 0.3rem 0.6rem;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--fg-muted);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lang-switch button:hover {
+  color: var(--fg);
+}
+
+.lang-switch button.active {
+  background: var(--accent);
+  color: #fff;
 }
 
 .site-header nav a {
@@ -90,7 +138,7 @@ main {
 
 .site-header nav a:hover {
   color: var(--fg);
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .site-header nav a.active {
@@ -102,12 +150,13 @@ main {
 /* ---------- hero ---------- */
 
 .hero {
-  padding-block: 5.5rem 4rem;
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  padding-block: calc(5rem + var(--header-h)) 4rem;
   background:
     radial-gradient(50rem 22rem at 15% -10%, rgba(29, 78, 216, 0.13), transparent 60%),
     radial-gradient(40rem 18rem at 90% 0%, rgba(56, 189, 248, 0.12), transparent 60%),
-    var(--surface);
+    linear-gradient(to bottom, var(--surface) 40%, #ffffff 100%);
 }
 
 .eyebrow {
@@ -134,29 +183,110 @@ h1 {
   margin: 0 0 1rem;
 }
 
-/* sadece home hero'sunda izgara dokusu */
+/* hero katman sirasi: video 0, dokular 1, yazi 2 */
 
-.hero-home {
+.hero .wrap {
   position: relative;
-  overflow: hidden;
+  z-index: 2;
 }
+
+/* home hero'sundaki video arka plan */
+
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.62;
+  pointer-events: none;
+  /* alt kenarda kesilmesin, izgaraya dogru erisin */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 45%,
+    rgba(0, 0, 0, 0.45) 78%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 45%,
+    rgba(0, 0, 0, 0.45) 78%,
+    transparent 100%
+  );
+}
+
+/* videonun uzerine beyaz peçe — yazi okunur kalsin */
+.hero-home::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(233, 239, 249, 0.42) 0%,
+    rgba(240, 244, 251, 0.34) 50%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+}
+
+/* sadece home hero'sunda izgara dokusu */
 
 .hero-home::before {
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(10, 16, 32, 0.055) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(10, 16, 32, 0.055) 1px, transparent 1px);
+    linear-gradient(to right, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 16, 32, 0.05) 1px, transparent 1px);
   background-size: 4rem 4rem;
-  -webkit-mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
-  mask-image: linear-gradient(to bottom, #000 0%, transparent 88%);
 }
 
-.hero-home .wrap {
-  position: relative;
+/* diger uc sayfada hareketli isik lekeleri — 0 byte, saf CSS */
+
+.hero-solutions::after,
+.hero-about::after,
+.hero-contact::after {
+  content: '';
+  position: absolute;
+  inset: -25%;
   z-index: 1;
+  pointer-events: none;
+  animation: heroBreathe 16s ease-in-out infinite alternate;
+}
+
+.hero-solutions::after {
+  background:
+    radial-gradient(20rem 15rem at 28% 45%, rgba(8, 145, 178, 0.18), transparent 65%),
+    radial-gradient(16rem 13rem at 72% 60%, rgba(56, 189, 248, 0.15), transparent 65%);
+}
+
+.hero-about::after {
+  background:
+    radial-gradient(20rem 15rem at 30% 50%, rgba(79, 70, 229, 0.17), transparent 65%),
+    radial-gradient(16rem 13rem at 70% 40%, rgba(99, 102, 241, 0.14), transparent 65%);
+}
+
+.hero-contact::after {
+  background:
+    radial-gradient(20rem 15rem at 26% 48%, rgba(124, 58, 237, 0.17), transparent 65%),
+    radial-gradient(16rem 13rem at 74% 58%, rgba(139, 92, 246, 0.14), transparent 65%);
+}
+
+@keyframes heroBreathe {
+  0% {
+    transform: scale(1) translate3d(0, 0, 0);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.18) translate3d(2rem, -1rem, 0);
+    opacity: 1;
+  }
 }
 
 /* solutions — camgobegi */
@@ -165,7 +295,7 @@ h1 {
   background:
     radial-gradient(46rem 20rem at 12% -10%, rgba(8, 145, 178, 0.16), transparent 60%),
     radial-gradient(38rem 18rem at 88% 0%, rgba(56, 189, 248, 0.13), transparent 62%),
-    #f5fbfd;
+    linear-gradient(to bottom, #f5fbfd 55%, #ffffff 100%);
 }
 
 .hero.hero-solutions .eyebrow {
@@ -178,7 +308,7 @@ h1 {
   background:
     radial-gradient(44rem 20rem at 15% -10%, rgba(79, 70, 229, 0.15), transparent 60%),
     radial-gradient(36rem 18rem at 90% 0%, rgba(99, 102, 241, 0.11), transparent 62%),
-    #f7f7fe;
+    linear-gradient(to bottom, #f7f7fe 55%, #ffffff 100%);
 }
 
 .hero.hero-about .eyebrow {
@@ -191,7 +321,7 @@ h1 {
   background:
     radial-gradient(44rem 20rem at 14% -10%, rgba(124, 58, 237, 0.15), transparent 60%),
     radial-gradient(36rem 18rem at 88% 0%, rgba(139, 92, 246, 0.11), transparent 62%),
-    #f9f6fe;
+    linear-gradient(to bottom, #f9f6fe 55%, #ffffff 100%);
 }
 
 .hero.hero-contact .eyebrow {
@@ -251,7 +381,7 @@ h1 {
   height: 22px;
 }
 
-/* solutions kartlari — her biri kendi rengiyle */
+/* solutions kartlari */
 
 .card.solution {
   position: relative;
@@ -270,6 +400,7 @@ h1 {
 .card.solution:hover {
   border-color: var(--c);
 }
+
 
 .card.solution h3 {
   font-size: 1.15rem;
@@ -467,29 +598,130 @@ h1 {
   }
 }
 
+/* ---------- about: sehir bandi ---------- */
+
+.cities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.city {
+  position: relative;
+  margin: 0;
+  height: 230px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.city img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.city:hover img {
+  transform: scale(1.06);
+}
+
+.city figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.5rem 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(10, 16, 32, 0.85), transparent);
+}
+
+.city figcaption strong {
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+}
+
+.city figcaption span {
+  font-size: 0.85rem;
+  opacity: 0.85;
+}
+
+/* CC BY-SA lisansi kaynak gostermeyi zorunlu kiliyor */
+
+.credits {
+  margin: 1rem 0 0;
+  font-size: 0.78rem;
+  color: var(--fg-muted);
+  opacity: 0.75;
+}
+
+.credits a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* ---------- mobil ---------- */
 
 @media (max-width: 640px) {
+  .cities {
+    grid-template-columns: 1fr;
+  }
+  .city {
+    height: 190px;
+  }
+  :root {
+    --header-h: 116px;
+  }
   .site-header {
     flex-direction: column;
+    justify-content: center;
     gap: 0.75rem;
-    padding: 1rem;
+    padding-inline: 1rem;
+  }
+  .brand img {
+    height: 28px;
   }
   .wrap {
     padding-inline: 1.25rem;
   }
   .hero {
-    padding-block: 3rem 2.5rem;
+    padding-block: calc(2.5rem + var(--header-h)) 2.5rem;
   }
   .section {
     padding-block: 2.5rem;
   }
 }
 
+/* kullanici animasyon istemiyorsa hepsini durdur */
+
 @media (prefers-reduced-motion: reduce) {
   .hero,
   .section,
-  .stats-band {
+  .stats-band,
+  .hero-solutions::after,
+  .hero-about::after,
+  .hero-contact::after {
     animation: none;
   }
+  .hero-video {
+    display: none;
+  }
+  .city img {
+    transition: none;
+  }
+}
+
+/* home sayfasinda izgara tum sayfaya yayilsin */
+
+.p-home main {
+  background-image:
+    linear-gradient(to right, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, #ffffff 0%, #ffffff 45%, var(--surface) 100%);
+  background-size:
+    4rem 4rem,
+    4rem 4rem,
+    100% 100%;
 }

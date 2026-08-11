@@ -4,10 +4,18 @@ import (
 	"embed"
 	"encoding/json"
 	"fmt"
+	"io/fs"
+	"sort"
+	"strings"
 )
 
-//go:embed data/site.json
+// data/site.en.json, site.nl.json, site.tr.json — hepsi tek seferde gömülür
+//
+//go:embed data/site.*.json
 var files embed.FS
+
+// DefaultLang istenen dil bulunamazsa dönülecek dil
+const DefaultLang = "en"
 
 // Link bir baglanti kullanıcının gördüğü yazı ve gideceği adres
 type Link struct {
@@ -92,18 +100,66 @@ type Site struct {
 	Contact   Contact   `json:"contact"`
 }
 
-// Load gömülü site.json dosyasını okur ve Site yapısına çevirir.
-func Load() (Site, error) {
-	raw, err := files.ReadFile("data/site.json")
+// Bundle butun dillerin iceriklerini bir arada tutar.
+// Anahtar dil kodu ("en", "nl", "tr"), deger o dilin tam icerigi.
+type Bundle struct {
+	sites map[string]Site
+}
+
+// Load gömülü butun site.<dil>.json dosyalarını okur.
+func Load() (*Bundle, error) {
+	// data klasorundeki dosya adlarini bul
+	names, err := fs.Glob(files, "data/site.*.json")
 	if err != nil {
-		return Site{}, fmt.Errorf("read site.json: %w", err)
+		return nil, fmt.Errorf("glob content files: %w", err)
+	}
+	if len(names) == 0 {
+		return nil, fmt.Errorf("no content files embedded")
 	}
 
-	var site Site
-	if err := json.Unmarshal(raw, &site); err != nil {
-		return Site{}, fmt.Errorf("decode site.json: %w", err)
+	sites := make(map[string]Site, len(names))
+
+	for _, name := range names {
+		// "data/site.tr.json" -> "tr"
+		base := strings.TrimSuffix(strings.TrimPrefix(name, "data/site."), ".json")
+
+		raw, err := files.ReadFile(name)
+		if err != nil {
+			return nil, fmt.Errorf("read %s: %w", name, err)
+		}
+
+		var site Site
+		if err := json.Unmarshal(raw, &site); err != nil {
+			return nil, fmt.Errorf("decode %s: %w", name, err)
+		}
+
+		sites[base] = site
 	}
 
-	return site, nil
+	// varsayilan dil yoksa geri kalani anlamsiz olur
+	if _, ok := sites[DefaultLang]; !ok {
+		return nil, fmt.Errorf("default language %q missing", DefaultLang)
+	}
 
+	return &Bundle{sites: sites}, nil
+}
+
+// Site istenen dilin icerigini dondurur.
+// Dil bilinmiyorsa varsayilan dile duser; ikinci deger hangi dilin dondugunu soyler.
+func (b *Bundle) Site(lang string) (Site, string) {
+	if site, ok := b.sites[lang]; ok {
+		return site, lang
+	}
+	return b.sites[DefaultLang], DefaultLang
+}
+
+// Languages mevcut dil kodlarini alfabetik sirada dondurur.
+func (b *Bundle) Languages() []string {
+	langs := make([]string, 0, len(b.sites))
+	for lang := range b.sites {
+		langs = append(langs, lang)
+	}
+	// map'in sirasi Go'da rastgeledir, o yuzden siraliyoruz
+	sort.Strings(langs)
+	return langs
 }
