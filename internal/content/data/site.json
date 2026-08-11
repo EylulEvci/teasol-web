@@ -45,30 +45,30 @@
       }
     ]
   },
-  "solutions": {
-    "title": "Four ways to trade capacity",
-    "subtitle": "Each part of the exchange solves one side of the sharing problem, on a single platform.",
+    "solutions": {
+    "title": "Four Ways to Trade Network Capacity",
+    "subtitle": "Mobile networks are expensive to build and often sit half empty. These four products let operators share what they already have — automatically.",
     "items": [
       {
         "title": "Network Sharing Exchange",
-        "description": "AI-powered matching with predictive demand forecasting. Automates operator agreements for seamless network sharing."
+        "description": "We predict where a network will be crowded and where it will be quiet. Then we automatically match operators who need extra capacity with those who have spare capacity — no meetings, no manual contracts."
       },
       {
         "title": "Slice Exchange",
-        "description": "Dynamic MVNO resource allocation with continuous SLA monitoring and performance guarantees."
+        "description": "Some mobile brands rent their network from bigger operators. Instead of being locked into a fixed monthly amount, they can buy exactly what they need, when they need it, from more than one provider."
       },
       {
         "title": "Private Network Marketplace",
-        "description": "Instant dynamic capacity contracts for venues and enterprise operators with flexible terms."
+        "description": "A stadium, factory or hospital can run its own small network. When an event or a busy shift needs more, they buy extra coverage for just that period — and it works beyond their own walls."
       },
       {
         "title": "Neutral Host Trading Platform",
-        "description": "Trade network capacity with automated matching and real-time market pricing."
+        "description": "A neutral middleman that connects everyone. It finds unused capacity, sets a fair price in real time, and closes the deal on its own — so idle equipment starts earning."
       }
     ]
   },
   "about": {
-    "title": "A deep-tech startup building the exchange layer for telecom",
+    "title": "Where Spare Capacity Finds a Home",
     "paragraphs": [
       "TEASOL enables operators to unlock the full potential of their infrastructure through intelligent sharing and slice management solutions.",
       "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
@@ -79,14 +79,35 @@
       { "value": "5G/6G", "label": "era-ready platform" }
     ]
   },
-  "contact": {
-    "title": "Get in touch",
-    "subtitle": "Tell us which side of the exchange you are on.",
+    "contact": {
+    "title": "Let's Talk About Your Network",
+    "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
     "email": "contact@teasol.com",
+    "responseTime": "We reply within two business days.",
+        "reasons": [
+      {
+        "icon": "play",
+        "title": "Book a Demo",
+        "subject": "Demo request",
+        "description": "See the platform running against real capacity data, not slides."
+      },
+      {
+        "icon": "link",
+        "title": "Partnership",
+        "subject": "Partnership enquiry",
+        "description": "Operators, neutral hosts and vendors building the exchange together."
+      },
+      {
+        "icon": "star",
+        "title": "Careers",
+        "subject": "Careers",
+        "description": "We are hiring across engineering, product and network strategy."
+      }
+    ],
     "offices": [
-      { "city": "Eindhoven", "country": "Netherlands" },
-      { "city": "Istanbul", "country": "Türkiye" },
-      { "city": "Sunnyvale", "country": "California, USA" }
+      { "city": "Eindhoven", "country": "Netherlands", "kind": "Headquarters" },
+      { "city": "Istanbul", "country": "Türkiye", "kind": "Office" },
+      { "city": "Sunnyvale", "country": "California, USA", "kind": "Office" }
     ]
   }
 }

@@ -4,6 +4,13 @@ import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 
 import './index.css'
 
+const SOLUTION_COLORS = [
+  { main: '#1d4ed8', soft: '#eef3ff' },
+  { main: '#0891b2', soft: '#e6f6fa' },
+  { main: '#4f46e5', soft: '#eeedfd' },
+  { main: '#7c3aed', soft: '#f3edff' },
+]
+
 const ICONS = {
   venue: (
     <>
@@ -50,6 +57,23 @@ const ICONS = {
       <path d="M12 3c2.5 2.5 4 5.6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.6-4-9s1.5-6.5 4-9z" />
     </>
   ),
+    play: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M10 8.5l6 3.5-6 3.5z" />
+    </>
+  ),
+  link: (
+    <>
+      <path d="M9.5 14.5a4 4 0 0 1 0-5.6l2.1-2.1a4 4 0 0 1 5.6 5.6l-1 1" />
+      <path d="M14.5 9.5a4 4 0 0 1 0 5.6l-2.1 2.1a4 4 0 0 1-5.6-5.6l1-1" />
+    </>
+  ),
+  star: (
+    <>
+      <path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z" />
+    </>
+  ), 
 }
 
 function Icon({ name }) {
@@ -100,7 +124,7 @@ function Home({ site }) {
 
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-home">
         <div className="wrap">
           <p className="eyebrow">{site.brand.tagline}</p>
           <h1>{title}</h1>
@@ -129,20 +153,34 @@ function Solutions({ site }) {
   const { title, subtitle, items } = site.solutions
 
   return (
-    <section className="wrap section">
-      <h1>{title}</h1>
-      <p className="lead">{subtitle}</p>
+    <>
+      <section className="hero hero-solutions">
+        <div className="wrap">
+          <p className="eyebrow">Solutions</p>
+          <h1>{title}</h1>
+          <p className="lead">{subtitle}</p>
+        </div>
+      </section>
 
-      <div className="cards two">
-        {items.map((item, i) => (
-          <article key={item.title} className="card">
-            <span className="num">{String(i + 1).padStart(2, '0')}</span>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
+      <section className="wrap section">
+        <div className="cards two">
+          {items.map((item, i) => {
+            const c = SOLUTION_COLORS[i % SOLUTION_COLORS.length]
+            return (
+              <article
+                key={item.title}
+                className="card solution"
+                style={{ '--c': c.main, '--c-soft': c.soft }}
+              >
+                <span className="badge">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </article>
+            )
+          })}
+        </div>
+      </section>
+    </>
   )
 }
 
@@ -150,47 +188,89 @@ function About({ site }) {
   const { title, paragraphs, stats } = site.about
 
   return (
-    <section className="wrap section">
-      <h1>{title}</h1>
-      {paragraphs.map((p) => (
-        <p key={p} className="lead">
-          {p}
-        </p>
-      ))}
+    <>
+      <section className="hero hero-about">
+        <div className="wrap">
+          <p className="eyebrow">About</p>
+          <h1>{title}</h1>
+        </div>
+      </section>
 
-      <div className="stats">
-        {stats.map((s) => (
-          <div key={s.label} className="stat">
-            <strong>{s.value}</strong>
-            <span>{s.label}</span>
+      <section className="wrap section">
+        <div className="prose">
+          {paragraphs.map((p) => (
+            <p key={p} className="lead">
+              {p}
+            </p>
+          ))}
+        </div>
+      </section>
+
+      <section className="stats-band">
+        <div className="wrap">
+          <div className="stats">
+            {stats.map((s) => (
+              <div key={s.label} className="stat">
+                <strong>{s.value}</strong>
+                <span>{s.label}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   )
 }
 
 function Contact({ site }) {
-  const { title, subtitle, email, offices } = site.contact
+  const { title, subtitle, email, responseTime, reasons, offices } = site.contact
 
   return (
-    <section className="wrap section">
-      <h1>{title}</h1>
-      <p className="lead">{subtitle}</p>
+    <>
+      <section className="hero hero-contact">
+        <div className="wrap">
+          <p className="eyebrow">Contact</p>
+          <h1>{title}</h1>
+          <p className="lead">{subtitle}</p>
+        </div>
+      </section>
 
-      <a className="email" href={`mailto:${email}`}>
-        {email}
-      </a>
+      <section className="wrap section">
+        <a className="email-card" href={`mailto:${email}`}>
+          <span className="email-label">Write to us</span>
+          <span className="email-value">{email}</span>
+          <span className="email-note">{responseTime}</span>
+        </a>
 
-      <div className="cards three">
-        {offices.map((o) => (
-          <article key={o.city} className="card">
-            <h3>{o.city}</h3>
-            <p>{o.country}</p>
-          </article>
-        ))}
-      </div>
-    </section>
+                <div className="cards">
+          {reasons.map((r) => (
+            <a
+              key={r.title}
+              className="card reason"
+              href={`mailto:${email}?subject=${encodeURIComponent(r.subject)}`}
+            >
+              <span className="card-icon contact-icon">
+                <Icon name={r.icon} />
+              </span>
+              <h3>{r.title}</h3>
+              <p>{r.description}</p>
+              <span className="reason-cta">Write about this →</span>
+            </a>
+          ))}
+        </div>
+
+        <h2 className="sub">Where We Are</h2>
+        <div className="cards three">
+          {offices.map((o) => (
+            <article key={o.city} className="card office">
+              <span className={o.kind === 'Headquarters' ? 'tag hq' : 'tag'}>{o.kind}</span>
+              <h3>{o.city}</h3>
+              <p>{o.country}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
   )
 }
 

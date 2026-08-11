@@ -44,6 +44,15 @@ type Stat struct {
 type Office struct {
 	City    string `json:"city"`
 	Country string `json:"country"`
+	Kind    string `json:"kind"`
+}
+
+// Reason iletişime geçme sebebi.
+type Reason struct {
+	Icon        string `json:"icon"`
+	Title       string `json:"title"`
+	Subject     string `json:"subject"`
+	Description string `json:"description"`
 }
 
 type Home struct {
@@ -65,10 +74,12 @@ type About struct {
 }
 
 type Contact struct {
-	Title    string   `json:"title"`
-	Subtitle string   `json:"subtitle"`
-	Email    string   `json:"email"`
-	Offices  []Office `json:"offices"`
+	Title        string   `json:"title"`
+	Subtitle     string   `json:"subtitle"`
+	Email        string   `json:"email"`
+	ResponseTime string   `json:"responseTime"`
+	Reasons      []Reason `json:"reasons"`
+	Offices      []Office `json:"offices"`
 }
 
 // Site, site.json dosyasının tamamının Go karşılığı
