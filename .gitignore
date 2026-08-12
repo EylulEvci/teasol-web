@@ -16,3 +16,6 @@ Thumbs.db
 
 # Frontend derleme çıktısı — npm run build üretir
 internal/web/dist/
+
+# Kişisel öğrenme notları — public repoya gitmesin
+docs/
