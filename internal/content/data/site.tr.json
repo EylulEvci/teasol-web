@@ -1,113 +1,146 @@
 {
-  "brand": {
-    "name": "TEASOL",
-    "tagline": "Next-gen Network & Slice Exchange"
-  },
-  "nav": [
-    { "label": "Home", "href": "/" },
-    { "label": "Solutions", "href": "/solutions" },
-    { "label": "About", "href": "/about" },
-    { "label": "Contact", "href": "/contact" }
-  ],
-  "home": {
-    "title": "Intelligent Network Sharing for the 5G/6G Era",
-    "subtitle": "AI-powered network capacity management for the intelligent network era. Help operators predict demand, allocate underutilized capacity, and unlock new revenue streams.",
-    "features": [
-      {
-        "icon": "venue",
-        "title": "Venues & Events",
-        "description": "Seamless connectivity for stadiums, concerts and festivals with slicing that scales with crowd density."
-      },
-      {
-        "icon": "city",
-        "title": "Smart Cities",
-        "description": "Reliable network sharing that supports IoT, traffic management and public safety systems."
-      },
-      {
-        "icon": "tower",
-        "title": "Telecom Infrastructure",
-        "description": "AI-powered matching and automated capacity agreements between operators."
-      },
-      {
-        "icon": "building",
-        "title": "Enterprise Networks",
-        "description": "Dedicated private networks with guaranteed performance, security and MNO integration."
-      },
-      {
-        "icon": "transport",
-        "title": "Transportation",
-        "description": "Ultra-reliable low-latency slices for autonomous driving and smart mobility."
-      },
-      {
-        "icon": "globe",
-        "title": "Global Connectivity",
-        "description": "International sharing agreements with automated roaming and capacity exchange."
-      }
-    ]
-  },
+    "brand": {
+        "name": "TEASOL",
+        "tagline": "Next-gen Network & Slice Exchange"
+    },
+    "nav": [
+        {
+            "label": "Ana Sayfa",
+            "href": "/"
+        },
+        {
+            "label": "Çözümler",
+            "href": "/solutions"
+        },
+        {
+            "label": "Hakkımızda",
+            "href": "/about"
+        },
+        {
+            "label": "İletişim",
+            "href": "/contact"
+        }
+    ],
+    "home": {
+        "title": "5G/6G Dönemi için Akıllı Ağ Paylaşımı",
+        "subtitle": "Akıllı ağ dönemi için yapay zekâ destekli ağ kapasitesi yönetimi. Operatörlerin talebi öngörmesine, atıl kapasiteyi tahsis etmesine ve yeni gelir kaynakları oluşturmasına yardımcı oluyoruz.",
+        "features": [
+            {
+                "icon": "venue",
+                "title": "Mekânlar ve Etkinlikler",
+                "description": "Kalabalık yoğunluğuna göre ölçeklenen ağ dilimleme ile stadyumlar, konserler ve festivaller için kesintisiz bağlantı."
+            },
+            {
+                "icon": "city",
+                "title": "Akıllı Şehirler",
+                "description": "Nesnelerin interneti (IoT), trafik yönetimi ve kamu güvenliği sistemlerini destekleyen güvenilir ağ paylaşımı."
+            },
+            {
+                "icon": "tower",
+                "title": "Telekom Altyapısı",
+                "description": "Operatörler arasında yapay zekâ destekli eşleştirme ve otomatik kapasite anlaşmaları."
+            },
+            {
+                "icon": "building",
+                "title": "Kurumsal Ağlar",
+                "description": "Performans garantisi, güvenlik ve mobil ağ operatörü (MNO) entegrasyonuyla kuruma özel ağlar."
+            },
+            {
+                "icon": "transport",
+                "title": "Ulaşım",
+                "description": "Otonom sürüş ve akıllı mobilite için ultra güvenilir, düşük gecikmeli ağ dilimleri."
+            },
+            {
+                "icon": "globe",
+                "title": "Küresel Bağlantı",
+                "description": "Otomatik dolaşım ve kapasite alışverişiyle uluslararası paylaşım anlaşmaları."
+            }
+        ]
+    },
     "solutions": {
-    "title": "Four Ways to Trade Network Capacity",
-    "subtitle": "Mobile networks are expensive to build and often sit half empty. These four products let operators share what they already have — automatically.",
-    "items": [
-      {
-        "title": "Network Sharing Exchange",
-        "description": "We predict where a network will be crowded and where it will be quiet. Then we automatically match operators who need extra capacity with those who have spare capacity — no meetings, no manual contracts."
-      },
-      {
-        "title": "Slice Exchange",
-        "description": "Some mobile brands rent their network from bigger operators. Instead of being locked into a fixed monthly amount, they can buy exactly what they need, when they need it, from more than one provider."
-      },
-      {
-        "title": "Private Network Marketplace",
-        "description": "A stadium, factory or hospital can run its own small network. When an event or a busy shift needs more, they buy extra coverage for just that period — and it works beyond their own walls."
-      },
-      {
-        "title": "Neutral Host Trading Platform",
-        "description": "A neutral middleman that connects everyone. It finds unused capacity, sets a fair price in real time, and closes the deal on its own — so idle equipment starts earning."
-      }
-    ]
-  },
-  "about": {
-    "title": "Where Spare Capacity Finds a Home",
-    "paragraphs": [
-      "TEASOL enables operators to unlock the full potential of their infrastructure through intelligent sharing and slice management solutions.",
-      "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
-    ],
-    "stats": [
-      { "value": "35+", "label": "years of combined telecom experience" },
-      { "value": "3", "label": "offices across Europe, Türkiye and the US" },
-      { "value": "5G/6G", "label": "era-ready platform" }
-    ]
-  },
+        "title": "Ağ Kapasitesi Ticaretinin Dört Yolu",
+        "subtitle": "Mobil ağ kurmak pahalıdır ve bu ağlar çoğu zaman yarı boş çalışır. Bu dört ürün, operatörlerin zaten sahip olduklarını paylaşmasını sağlar — hem de otomatik olarak.",
+        "items": [
+            {
+                "title": "Network Sharing Exchange",
+                "description": "Bir ağın nerede yoğun, nerede sakin olacağını öngörüyoruz. Ardından ek kapasiteye ihtiyaç duyan operatörlerle boşta kapasitesi olanları otomatik olarak eşleştiriyoruz — toplantı ve manuel sözleşme süreci olmadan."
+            },
+            {
+                "title": "Slice Exchange",
+                "description": "Bazı mobil markalar ağlarını daha büyük operatörlerden kiralar. Sabit bir aylık miktara bağlı kalmak yerine, ihtiyaç duydukları kadarını, ihtiyaç duydukları anda, birden fazla sağlayıcıdan satın alabilirler."
+            },
+            {
+                "title": "Private Network Marketplace",
+                "description": "Bir stadyum, fabrika ya da hastane kendi küçük ağını işletebilir. Bir etkinlik ya da yoğun bir vardiya daha fazlasını gerektirdiğinde, yalnızca o süre için ek kapsama satın alırlar — ve bu kapsama kendi sınırlarının dışına da taşar."
+            },
+            {
+                "title": "Neutral Host Trading Platform",
+                "description": "Herkesi birbirine bağlayan tarafsız bir aracı. Boştaki kapasiteyi bulur, gerçek zamanlı olarak adil bir fiyat belirler ve anlaşmayı kendi başına tamamlar — böylece kullanılmayan ekipman gelir getirmeye başlar."
+            }
+        ]
+    },
+    "about": {
+        "title": "Where Spare Capacity Finds a Home",
+        "paragraphs": [
+            "TEASOL enables operators to unlock the full potential of their infrastructure through intelligent sharing and slice management solutions.",
+            "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
+        ],
+        "stats": [
+            {
+                "value": "35+",
+                "label": "years of combined telecom experience"
+            },
+            {
+                "value": "3",
+                "label": "offices across Europe, Türkiye and the US"
+            },
+            {
+                "value": "5G/6G",
+                "label": "era-ready platform"
+            }
+        ]
+    },
     "contact": {
-    "title": "Let's Talk About Your Network",
-    "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
-    "email": "contact@teasol.com",
-    "responseTime": "We reply within two business days.",
+        "title": "Let's Talk About Your Network",
+        "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
+        "email": "contact@teasol.com",
+        "responseTime": "We reply within two business days.",
         "reasons": [
-      {
-        "icon": "play",
-        "title": "Book a Demo",
-        "subject": "Demo request",
-        "description": "See the platform running against real capacity data, not slides."
-      },
-      {
-        "icon": "link",
-        "title": "Partnership",
-        "subject": "Partnership enquiry",
-        "description": "Operators, neutral hosts and vendors building the exchange together."
-      },
-      {
-        "icon": "star",
-        "title": "Careers",
-        "subject": "Careers",
-        "description": "We are hiring across engineering, product and network strategy."
-      }
-    ],
-    "offices": [
-      { "city": "Eindhoven", "country": "Netherlands", "kind": "Headquarters" },
-      { "city": "Istanbul", "country": "Türkiye", "kind": "Office" },
-      { "city": "Sunnyvale", "country": "California, USA", "kind": "Office" }
-    ]
-  }
+            {
+                "icon": "play",
+                "title": "Book a Demo",
+                "subject": "Demo request",
+                "description": "See the platform running against real capacity data, not slides."
+            },
+            {
+                "icon": "link",
+                "title": "Partnership",
+                "subject": "Partnership enquiry",
+                "description": "Operators, neutral hosts and vendors building the exchange together."
+            },
+            {
+                "icon": "star",
+                "title": "Careers",
+                "subject": "Careers",
+                "description": "We are hiring across engineering, product and network strategy."
+            }
+        ],
+        "offices": [
+            {
+                "city": "Eindhoven",
+                "country": "Netherlands",
+                "kind": "Headquarters"
+            },
+            {
+                "city": "Istanbul",
+                "country": "Türkiye",
+                "kind": "Office"
+            },
+            {
+                "city": "Sunnyvale",
+                "country": "California, USA",
+                "kind": "Office"
+            }
+        ]
+    }
 }
