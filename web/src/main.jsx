@@ -11,13 +11,6 @@ const SOLUTION_COLORS = [
   { main: '#7c3aed', soft: '#f3edff' },
 ]
 
-// gorsel yollari sunum detayi, o yuzden icerik JSON'unda degil burada
-const CITY_IMAGES = {
-  Eindhoven: '/img/city-eindhoven.jpg',
-  Istanbul: '/img/city-istanbul.jpg',
-  Sunnyvale: '/img/city-sunnyvale.jpg',
-}
-
 const ICONS = {
   venue: (
     <>
@@ -261,25 +254,14 @@ function About({ site }) {
       <section className="wrap section">
         <h2 className="sub">{site.ui.whereWeWork}</h2>
         <div className="cities">
-          {site.contact.offices.map((o) => (
-            <figure key={o.city} className="city">
-              <img
-                src={CITY_IMAGES[o.city]}
-                alt={`${o.city}, ${o.country}`}
-                loading="lazy"
-              />
-              <figcaption>
-                <strong>{o.city}</strong>
-                <span>{o.country}</span>
-              </figcaption>
-            </figure>
+          {site.contact.offices.map((o, i) => (
+            <article key={o.city} className={i === 0 ? 'city is-hq' : 'city'}>
+              <span className="city-kind">{o.kind}</span>
+              <strong>{o.city}</strong>
+              <span className="city-country">{o.country}</span>
+            </article>
           ))}
         </div>
-        <p className="credits">
-          Istanbul photo by Moonik · Sunnyvale photo by Vadim Manuylov · both{' '}
-          <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>
-          , via Wikimedia Commons
-        </p>
       </section>
 
       <section className="stats-band">
@@ -337,9 +319,10 @@ function Contact({ site }) {
 
         <h2 className="sub">{site.ui.whereWeAre}</h2>
         <div className="cards three">
-          {offices.map((o) => (
+          {/* ilk ofis genel merkez — kind alani cevrildigi icin metne bakilamaz */}
+          {offices.map((o, i) => (
             <article key={o.city} className="card office">
-              <span className={o.kind === 'Headquarters' ? 'tag hq' : 'tag'}>{o.kind}</span>
+              <span className={i === 0 ? 'tag hq' : 'tag'}>{o.kind}</span>
               <h3>{o.city}</h3>
               <p>{o.country}</p>
             </article>
