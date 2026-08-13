@@ -120,9 +120,9 @@
             },
             {
                 "icon": "star",
-                "title": "Loopbaan",
-                "subject": "Loopbaan",
-                "description": "We huren in over engineering, product- en netwerkstrategie."
+                "title": "Carrière",
+                "subject": "Carrière",
+                "description": "We breiden ons team uit op het gebied van engineering, product en netwerkstrategie."
             }
         ],
         "offices": [
@@ -146,7 +146,7 @@
     "ui": {
         "eyebrowSolutions": "Oplossingen",
         "eyebrowAbout": "Info",
-        "eyebrowContact": "Contactpersoon",
+        "eyebrowContact": "Contact",
         "whereWeWork": "Waar we werken",
         "whereWeAre": "Waar we zijn",
         "writeToUs": "Schrijf ons",
