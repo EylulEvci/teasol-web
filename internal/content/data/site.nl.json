@@ -1,11 +1,11 @@
 {
     "brand": {
         "name": "TEASOL",
-        "tagline": "Next-gen Netwerk & Slice Exchange"
+        "tagline": "Nieuwe generatie Network & Slice Exchange"
     },
     "nav": [
         {
-            "label": "Begin",
+            "label": "Home",
             "href": "/"
         },
         {
@@ -13,21 +13,21 @@
             "href": "/solutions"
         },
         {
-            "label": "Info",
+            "label": "Over ons",
             "href": "/about"
         },
         {
-            "label": "Contactpersoon",
+            "label": "Contact",
             "href": "/contact"
         }
     ],
     "home": {
-        "title": "Intelligent Network Sharing voor het 5G/6G tijdperk",
-        "subtitle": "AI-aangedreven netwerkcapaciteitsbeheer voor de intelligente netwerktijd. Help operators de vraag te voorspellen, onderbenutte capaciteit toe te wijzen en nieuwe inkomstenstromen te ontsluiten.",
+        "title": "Slim netwerkdelen voor het 5G/6G-tijdperk",
+        "subtitle": "AI-gestuurd netwerkcapaciteitsbeheer voor het intelligente netwerktijdperk. Wij helpen operators de vraag te voorspellen, onderbenutte capaciteit toe te wijzen en nieuwe inkomstenstromen te ontsluiten.",
         "features": [
             {
                 "icon": "venue",
-                "title": "Locaties & evenementen",
+                "title": "Locaties en evenementen",
                 "description": "Naadloze connectiviteit voor stadions, concerten en festivals met het snijden van die schaal met menigte dichtheid."
             },
             {
@@ -38,11 +38,11 @@
             {
                 "icon": "tower",
                 "title": "Telecommunicatie-infrastructuur",
-                "description": "AI-aangedreven matching- en geautomatiseerde capaciteitsovereenkomsten tussen exploitanten."
+                "description": "AI-gestuurde matching en geautomatiseerde capaciteitsovereenkomsten tussen operators."
             },
             {
                 "icon": "building",
-                "title": "Ondernemingennetwerken",
+                "title": "Bedrijfsnetwerken",
                 "description": "Dedicated private netwerken met gegarandeerde prestaties, beveiliging en MNO integratie."
             },
             {
@@ -53,13 +53,13 @@
             {
                 "icon": "globe",
                 "title": "Wereldwijde connectiviteit",
-                "description": "Internationale overeenkomsten inzake gedeeld gebruik met geautomatiseerde roaming en capaciteitsuitwisseling."
+                "description": "Internationale overeenkomsten voor netwerkdeling, met geautomatiseerde roaming en capaciteitsuitwisseling."
             }
         ]
     },
     "solutions": {
-        "title": "Vier manieren om handel netwerkcapaciteit",
-        "subtitle": "Mobiele netwerken zijn duur om te bouwen en zitten vaak half leeg. Deze vier producten laten exploitanten automatisch delen wat ze al hebben.",
+        "title": "Vier manieren om netwerkcapaciteit te verhandelen",
+        "subtitle": "Mobiele netwerken zijn duur om te bouwen en zitten vaak half leeg. Deze vier producten laten operators delen wat ze al hebben — en dat automatisch.",
         "items": [
             {
                 "title": "Network Sharing Exchange",
@@ -75,20 +75,20 @@
             },
             {
                 "title": "Neutral Host Trading Platform",
-                "description": "Een neutrale tussenpersoon die iedereen verbindt. Het vindt ongebruikte capaciteit, stelt een eerlijke prijs in real time, en sluit de deal op zijn eigen ."
+                "description": "Een neutrale tussenpersoon die iedereen verbindt. Hij vindt ongebruikte capaciteit, bepaalt in real time een eerlijke prijs en sluit de deal zelfstandig af — zodat stilstaande apparatuur geld gaat opleveren."
             }
         ]
     },
     "about": {
         "title": "Waar reservecapaciteit een thuis vindt",
         "paragraphs": [
-            "TEASOL stelt exploitanten in staat het volledige potentieel van hun infrastructuur te ontsluiten door intelligente oplossingen voor delen en snijden.",
-            "Opgericht door telecomveteranen met 35+ jaar ervaring in netwerkvirtualisatie, AI en infrastructuurinnovatie, bouwen we de eerste volledig geautomatiseerde netwerk uitwisseling voor de 5G/6G tijdperk."
+            "TEASOL stelt operators in staat het volledige potentieel van hun infrastructuur te ontsluiten door intelligente oplossingen voor netwerkdeling en slicebeheer.",
+            "Opgericht door telecomveteranen met 35+ jaar ervaring in netwerkvirtualisatie, AI en infrastructuurinnovatie, bouwen we het eerste volledig geautomatiseerde handelsplatform voor netwerkdeling in het 5G/6G-tijdperk."
         ],
         "stats": [
             {
                 "value": "35+",
-                "label": "jarenlange gecombineerde telecomervaring"
+                "label": "jaar opgebouwde telecomervaring"
             },
             {
                 "value": "3",
@@ -96,27 +96,27 @@
             },
             {
                 "value": "5G/6G",
-                "label": "era-ready platform"
+                "label": "platform klaar voor dit tijdperk"
             }
         ]
     },
     "contact": {
-        "title": "Laten we het over je netwerk hebben",
-        "subtitle": "Vertel ons aan welke kant van de beurs u staat, dan tonen wij u het platform tegen uw eigen capaciteit.",
+        "title": "Laten we het over uw netwerk hebben",
+        "subtitle": "Vertel ons aan welke kant van de uitwisseling u staat, dan tonen wij u het platform op basis van uw eigen capaciteitssituatie.",
         "email": "contact@teasol.com",
         "responseTime": "We antwoorden binnen twee werkdagen.",
         "reasons": [
             {
                 "icon": "play",
-                "title": "Boek een demo",
-                "subject": "Demo verzoek",
-                "description": "Zie het platform loopt tegen reële capaciteit gegevens, niet dia's."
+                "title": "Demo aanvragen",
+                "subject": "Demoaanvraag",
+                "description": "Zie het platform draaien op basis van echte capaciteitsgegevens, niet op dia's."
             },
             {
                 "icon": "link",
-                "title": "Partnerschap",
-                "subject": "Partnerschapsonderzoek",
-                "description": "Exploitanten, neutrale gastheren en leveranciers die samen de beurs bouwen."
+                "title": "Samenwerking",
+                "subject": "Samenwerkingsaanvraag",
+                "description": "Operators, neutrale infrastructuuraanbieders en leveranciers die samen aan dit platform bouwen."
             },
             {
                 "icon": "star",
