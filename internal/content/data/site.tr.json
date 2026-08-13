@@ -1,7 +1,7 @@
 {
     "brand": {
         "name": "TEASOL",
-        "tagline": "Next-gen Network & Slice Exchange"
+        "tagline": "Yeni Nesil Network & Slice Exchange"
     },
     "nav": [
         {
@@ -80,59 +80,59 @@
         ]
     },
     "about": {
-        "title": "Where Spare Capacity Finds a Home",
+        "title": "Boşta Kalan Kapasite Yerini Buluyor",
         "paragraphs": [
-            "TEASOL enables operators to unlock the full potential of their infrastructure through intelligent sharing and slice management solutions.",
-            "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
+            "TEASOL, akıllı paylaşım ve ağ dilimi yönetimi çözümleriyle operatörlerin altyapı potansiyelini tam olarak açığa çıkarmasını sağlar.",
+            "Ağ sanallaştırma, yapay zekâ ve altyapı inovasyonu alanlarında 35+ yıllık deneyime sahip telekom uzmanları tarafından kurulduk. 5G/6G dönemi için ilk tam otomatik ağ paylaşımı ticaret platformunu inşa ediyoruz."
         ],
         "stats": [
             {
                 "value": "35+",
-                "label": "years of combined telecom experience"
+                "label": "yıllık birikmiş telekom deneyimi"
             },
             {
                 "value": "3",
-                "label": "offices across Europe, Türkiye and the US"
+                "label": "Avrupa, Türkiye ve ABD'de ofis"
             },
             {
                 "value": "5G/6G",
-                "label": "era-ready platform"
+                "label": "dönemine hazır platform"
             }
         ]
     },
     "contact": {
-        "title": "Let's Talk About Your Network",
-        "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
+        "title": "Ağınız Hakkında Konuşalım",
+        "subtitle": "Alışverişin hangi tarafında olduğunuzu söyleyin — platformu kendi kapasite durumunuz üzerinden gösterelim.",
         "email": "contact@teasol.com",
-        "responseTime": "We reply within two business days.",
+        "responseTime": "İki iş günü içinde yanıt veriyoruz.",
         "reasons": [
             {
                 "icon": "play",
                 "title": "Book a Demo",
-                "subject": "Demo request",
-                "description": "See the platform running against real capacity data, not slides."
+                "subject": "Demo talebi",
+                "description": "Platformu slaytlarda değil, gerçek kapasite verileri üzerinde çalışırken görün."
             },
             {
                 "icon": "link",
-                "title": "Partnership",
-                "subject": "Partnership enquiry",
-                "description": "Operators, neutral hosts and vendors building the exchange together."
+                "title": "İş Ortaklığı",
+                "subject": "İş ortaklığı talebi",
+                "description": "Bu yapıyı birlikte kuran operatörler, tarafsız altyapı sağlayıcıları ve tedarikçiler."
             },
             {
                 "icon": "star",
-                "title": "Careers",
-                "subject": "Careers",
-                "description": "We are hiring across engineering, product and network strategy."
+                "title": "Kariyer",
+                "subject": "Kariyer",
+                "description": "Mühendislik, ürün ve ağ stratejisi alanlarında ekibimizi büyütüyoruz."
             }
         ],
         "offices": [
             {
                 "city": "Eindhoven",
                 "country": "Netherlands",
-                "kind": "Headquarters"
+                "kind": "Genel Merkez"
             },
             {
-                "city": "Istanbul",
+                "city": "İstanbul",
                 "country": "Türkiye",
                 "kind": "Office"
             },
@@ -144,14 +144,14 @@
         ]
     },
     "ui": {
-        "eyebrowSolutions": "Solutions",
-        "eyebrowAbout": "About",
+        "eyebrowSolutions": "Çözümler",
+        "eyebrowAbout": "Hakkımızda",
         "eyebrowContact": "Contact",
-        "whereWeWork": "Where We Work",
-        "whereWeAre": "Where We Are",
-        "writeToUs": "Write to us",
-        "reasonCta": "Write about this",
-        "notFoundTitle": "Page not found",
-        "notFoundText": "The page you are looking for does not exist."
+        "whereWeWork": "Nerede Çalışıyoruz",
+        "whereWeAre": "Neredeyiz",
+        "writeToUs": "Bize yazın",
+        "reasonCta": "Bu konuda yazın",
+        "notFoundTitle": "Sayfa bulunamadı",
+        "notFoundText": "Aradığınız sayfa mevcut değil."
     }
 }
