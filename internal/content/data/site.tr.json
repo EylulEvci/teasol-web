@@ -108,7 +108,7 @@
         "reasons": [
             {
                 "icon": "play",
-                "title": "Book a Demo",
+                "title": "Demo Talebi",
                 "subject": "Demo talebi",
                 "description": "Platformu slaytlarda değil, gerçek kapasite verileri üzerinde çalışırken görün."
             },
@@ -128,25 +128,25 @@
         "offices": [
             {
                 "city": "Eindhoven",
-                "country": "Netherlands",
+                "country": "Hollanda",
                 "kind": "Genel Merkez"
             },
             {
                 "city": "İstanbul",
                 "country": "Türkiye",
-                "kind": "Office"
+                "kind": "Ofis"
             },
             {
                 "city": "Sunnyvale",
-                "country": "California, USA",
-                "kind": "Office"
+                "country": "Kaliforniya, ABD",
+                "kind": "Ofis"
             }
         ]
     },
     "ui": {
         "eyebrowSolutions": "Çözümler",
         "eyebrowAbout": "Hakkımızda",
-        "eyebrowContact": "Contact",
+        "eyebrowContact": "İletişim",
         "whereWeWork": "Nerede Çalışıyoruz",
         "whereWeAre": "Neredeyiz",
         "writeToUs": "Bize yazın",
