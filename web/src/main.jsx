@@ -101,6 +101,10 @@ function Icon({ name }) {
 
 const LANG_LABELS = { en: 'EN', nl: 'NL', tr: 'TR' }
 
+// Icerik daha yuklenmeden ekrana gelir, o yuzden site.json'dan gelemez.
+// Weblate'in gormedigi tek metin bu.
+const LOADING = { en: 'Loading…', nl: 'Laden…', tr: 'Yükleniyor…' }
+
 function LangSwitch({ langs, lang, onChange }) {
   if (langs.length < 2) return null
 
@@ -204,7 +208,7 @@ function Solutions({ site }) {
     <>
       <section className="hero hero-solutions">
         <div className="wrap">
-          <p className="eyebrow">Solutions</p>
+          <p className="eyebrow">{site.ui.eyebrowSolutions}</p>
           <h1>{title}</h1>
           <p className="lead">{subtitle}</p>
         </div>
@@ -239,7 +243,7 @@ function About({ site }) {
     <>
       <section className="hero hero-about">
         <div className="wrap">
-          <p className="eyebrow">About</p>
+          <p className="eyebrow">{site.ui.eyebrowAbout}</p>
           <h1>{title}</h1>
         </div>
       </section>
@@ -255,7 +259,7 @@ function About({ site }) {
       </section>
 
       <section className="wrap section">
-        <h2 className="sub">Where We Work</h2>
+        <h2 className="sub">{site.ui.whereWeWork}</h2>
         <div className="cities">
           {site.contact.offices.map((o) => (
             <figure key={o.city} className="city">
@@ -301,7 +305,7 @@ function Contact({ site }) {
     <>
       <section className="hero hero-contact">
         <div className="wrap">
-          <p className="eyebrow">Contact</p>
+          <p className="eyebrow">{site.ui.eyebrowContact}</p>
           <h1>{title}</h1>
           <p className="lead">{subtitle}</p>
         </div>
@@ -309,7 +313,7 @@ function Contact({ site }) {
 
       <section className="wrap section">
         <a className="email-card" href={`mailto:${email}`}>
-          <span className="email-label">Write to us</span>
+          <span className="email-label">{site.ui.writeToUs}</span>
           <span className="email-value">{email}</span>
           <span className="email-note">{responseTime}</span>
         </a>
@@ -326,12 +330,12 @@ function Contact({ site }) {
               </span>
               <h3>{r.title}</h3>
               <p>{r.description}</p>
-              <span className="reason-cta">Write about this →</span>
+              <span className="reason-cta">{site.ui.reasonCta} →</span>
             </a>
           ))}
         </div>
 
-        <h2 className="sub">Where We Are</h2>
+        <h2 className="sub">{site.ui.whereWeAre}</h2>
         <div className="cards three">
           {offices.map((o) => (
             <article key={o.city} className="card office">
@@ -346,11 +350,11 @@ function Contact({ site }) {
   )
 }
 
-function NotFound() {
+function NotFound({ site }) {
   return (
     <section className="wrap section">
-      <h1>404</h1>
-      <p className="lead">Bu sayfa bulunamadı.</p>
+      <h1>{site.ui.notFoundTitle}</h1>
+      <p className="lead">{site.ui.notFoundText}</p>
     </section>
   )
 }
@@ -379,7 +383,7 @@ function App() {
       .then(setSite)
   }, [lang])
 
-  if (!site) return <p className="wrap section">Yükleniyor…</p>
+  if (!site) return <p className="wrap section">{LOADING[lang] ?? LOADING.en}</p>
 
   return (
     <BrowserRouter>
@@ -389,7 +393,7 @@ function App() {
           <Route path="/solutions" element={<Solutions site={site} />} />
           <Route path="/about" element={<About site={site} />} />
           <Route path="/contact" element={<Contact site={site} />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<NotFound site={site} />} />
         </Routes>
       </Layout>
     </BrowserRouter>

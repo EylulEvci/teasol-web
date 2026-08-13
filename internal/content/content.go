@@ -90,7 +90,21 @@ type Contact struct {
 	Offices      []Office `json:"offices"`
 }
 
-// Site, site.json dosyasının tamamının Go karşılığı
+// UI arayüzde geçen sabit metinler.
+// Kodun içine gömülü kalsalardı çeviriye açılamazlardı.
+type UI struct {
+	EyebrowSolutions string `json:"eyebrowSolutions"`
+	EyebrowAbout     string `json:"eyebrowAbout"`
+	EyebrowContact   string `json:"eyebrowContact"`
+	WhereWeWork      string `json:"whereWeWork"`
+	WhereWeAre       string `json:"whereWeAre"`
+	WriteToUs        string `json:"writeToUs"`
+	ReasonCta        string `json:"reasonCta"`
+	NotFoundTitle    string `json:"notFoundTitle"`
+	NotFoundText     string `json:"notFoundText"`
+}
+
+// Site, site.<dil>.json dosyasının tamamının Go karşılığı
 type Site struct {
 	Brand     Brand     `json:"brand"`
 	Nav       []Link    `json:"nav"`
@@ -98,6 +112,7 @@ type Site struct {
 	Solutions Solutions `json:"solutions"`
 	About     About     `json:"about"`
 	Contact   Contact   `json:"contact"`
+	UI        UI        `json:"ui"`
 }
 
 // Bundle butun dillerin iceriklerini bir arada tutar.

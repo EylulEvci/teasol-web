@@ -142,5 +142,16 @@
                 "kind": "Office"
             }
         ]
+    },
+    "ui": {
+        "eyebrowSolutions": "Solutions",
+        "eyebrowAbout": "About",
+        "eyebrowContact": "Contact",
+        "whereWeWork": "Where We Work",
+        "whereWeAre": "Where We Are",
+        "writeToUs": "Write to us",
+        "reasonCta": "Write about this",
+        "notFoundTitle": "Page not found",
+        "notFoundText": "The page you are looking for does not exist."
     }
 }

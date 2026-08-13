@@ -4,10 +4,22 @@
     "tagline": "Next-gen Network & Slice Exchange"
   },
   "nav": [
-    { "label": "Home", "href": "/" },
-    { "label": "Solutions", "href": "/solutions" },
-    { "label": "About", "href": "/about" },
-    { "label": "Contact", "href": "/contact" }
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Solutions",
+      "href": "/solutions"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    },
+    {
+      "label": "Contact",
+      "href": "/contact"
+    }
   ],
   "home": {
     "title": "Intelligent Network Sharing for the 5G/6G Era",
@@ -45,7 +57,7 @@
       }
     ]
   },
-    "solutions": {
+  "solutions": {
     "title": "Four Ways to Trade Network Capacity",
     "subtitle": "Mobile networks are expensive to build and often sit half empty. These four products let operators share what they already have — automatically.",
     "items": [
@@ -74,17 +86,26 @@
       "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
     ],
     "stats": [
-      { "value": "35+", "label": "years of combined telecom experience" },
-      { "value": "3", "label": "offices across Europe, Türkiye and the US" },
-      { "value": "5G/6G", "label": "era-ready platform" }
+      {
+        "value": "35+",
+        "label": "years of combined telecom experience"
+      },
+      {
+        "value": "3",
+        "label": "offices across Europe, Türkiye and the US"
+      },
+      {
+        "value": "5G/6G",
+        "label": "era-ready platform"
+      }
     ]
   },
-    "contact": {
+  "contact": {
     "title": "Let's Talk About Your Network",
     "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
     "email": "contact@teasol.com",
     "responseTime": "We reply within two business days.",
-        "reasons": [
+    "reasons": [
       {
         "icon": "play",
         "title": "Book a Demo",
@@ -105,9 +126,32 @@
       }
     ],
     "offices": [
-      { "city": "Eindhoven", "country": "Netherlands", "kind": "Headquarters" },
-      { "city": "Istanbul", "country": "Türkiye", "kind": "Office" },
-      { "city": "Sunnyvale", "country": "California, USA", "kind": "Office" }
+      {
+        "city": "Eindhoven",
+        "country": "Netherlands",
+        "kind": "Headquarters"
+      },
+      {
+        "city": "Istanbul",
+        "country": "Türkiye",
+        "kind": "Office"
+      },
+      {
+        "city": "Sunnyvale",
+        "country": "California, USA",
+        "kind": "Office"
+      }
     ]
+  },
+  "ui": {
+    "eyebrowSolutions": "Solutions",
+    "eyebrowAbout": "About",
+    "eyebrowContact": "Contact",
+    "whereWeWork": "Where We Work",
+    "whereWeAre": "Where We Are",
+    "writeToUs": "Write to us",
+    "reasonCta": "Write about this",
+    "notFoundTitle": "Page not found",
+    "notFoundText": "The page you are looking for does not exist."
   }
 }
