@@ -1,157 +1,157 @@
 {
-  "brand": {
-    "name": "TEASOL",
-    "tagline": "Next-gen Network & Slice Exchange"
-  },
-  "nav": [
-    {
-      "label": "Home",
-      "href": "/"
+    "brand": {
+        "name": "TEASOL",
+        "tagline": "Next-gen Netwerk & Slice Exchange"
     },
-    {
-      "label": "Solutions",
-      "href": "/solutions"
+    "nav": [
+        {
+            "label": "Begin",
+            "href": "/"
+        },
+        {
+            "label": "Oplossingen",
+            "href": "/solutions"
+        },
+        {
+            "label": "Info",
+            "href": "/about"
+        },
+        {
+            "label": "Contactpersoon",
+            "href": "/contact"
+        }
+    ],
+    "home": {
+        "title": "Intelligent Network Sharing voor het 5G/6G tijdperk",
+        "subtitle": "AI-aangedreven netwerkcapaciteitsbeheer voor de intelligente netwerktijd. Help operators de vraag te voorspellen, onderbenutte capaciteit toe te wijzen en nieuwe inkomstenstromen te ontsluiten.",
+        "features": [
+            {
+                "icon": "venue",
+                "title": "Locaties & evenementen",
+                "description": "Naadloze connectiviteit voor stadions, concerten en festivals met het snijden van die schaal met menigte dichtheid."
+            },
+            {
+                "icon": "city",
+                "title": "Slimme steden",
+                "description": "Betrouwbare netwerkdeling die IoT, verkeersbeheer en openbare veiligheidssystemen ondersteunt."
+            },
+            {
+                "icon": "tower",
+                "title": "Telecommunicatie-infrastructuur",
+                "description": "AI-aangedreven matching- en geautomatiseerde capaciteitsovereenkomsten tussen exploitanten."
+            },
+            {
+                "icon": "building",
+                "title": "Ondernemingennetwerken",
+                "description": "Dedicated private netwerken met gegarandeerde prestaties, beveiliging en MNO integratie."
+            },
+            {
+                "icon": "transport",
+                "title": "Vervoer",
+                "description": "Ultrabetrouwbare schijfjes met lage latentie voor autonoom rijden en slimme mobiliteit."
+            },
+            {
+                "icon": "globe",
+                "title": "Wereldwijde connectiviteit",
+                "description": "Internationale overeenkomsten inzake gedeeld gebruik met geautomatiseerde roaming en capaciteitsuitwisseling."
+            }
+        ]
     },
-    {
-      "label": "About",
-      "href": "/about"
+    "solutions": {
+        "title": "Vier manieren om handel netwerkcapaciteit",
+        "subtitle": "Mobiele netwerken zijn duur om te bouwen en zitten vaak half leeg. Deze vier producten laten exploitanten automatisch delen wat ze al hebben.",
+        "items": [
+            {
+                "title": "Network Sharing Exchange",
+                "description": "We voorspellen waar een netwerk druk zal zijn en waar het stil zal zijn. Dan matchen we automatisch operators die extra capaciteit nodig hebben met degenen die over reservecapaciteit beschikken, geen vergaderingen, geen handmatige contracten."
+            },
+            {
+                "title": "Slice Exchange",
+                "description": "Sommige mobiele merken verhuren hun netwerk van grotere exploitanten. In plaats van opgesloten in een vast maandelijks bedrag, kunnen ze precies kopen wat ze nodig hebben, wanneer ze het nodig hebben, van meer dan één provider."
+            },
+            {
+                "title": "Private Network Marketplace",
+                "description": "Een stadion, fabriek of ziekenhuis kan een eigen klein netwerk runnen. Wanneer een evenement of een drukke shift meer nodig heeft, kopen ze extra dekking voor net die periode en het werkt buiten hun eigen muren."
+            },
+            {
+                "title": "Neutral Host Trading Platform",
+                "description": "Een neutrale tussenpersoon die iedereen verbindt. Het vindt ongebruikte capaciteit, stelt een eerlijke prijs in real time, en sluit de deal op zijn eigen ."
+            }
+        ]
     },
-    {
-      "label": "Contact",
-      "href": "/contact"
+    "about": {
+        "title": "Waar reservecapaciteit een thuis vindt",
+        "paragraphs": [
+            "TEASOL stelt exploitanten in staat het volledige potentieel van hun infrastructuur te ontsluiten door intelligente oplossingen voor delen en snijden.",
+            "Opgericht door telecomveteranen met 35+ jaar ervaring in netwerkvirtualisatie, AI en infrastructuurinnovatie, bouwen we de eerste volledig geautomatiseerde netwerk uitwisseling voor de 5G/6G tijdperk."
+        ],
+        "stats": [
+            {
+                "value": "35+",
+                "label": "jarenlange gecombineerde telecomervaring"
+            },
+            {
+                "value": "3",
+                "label": "kantoren in Europa, Türkiye en de VS"
+            },
+            {
+                "value": "5G/6G",
+                "label": "era-ready platform"
+            }
+        ]
+    },
+    "contact": {
+        "title": "Laten we het over je netwerk hebben",
+        "subtitle": "Vertel ons aan welke kant van de beurs u staat, dan tonen wij u het platform tegen uw eigen capaciteit.",
+        "email": "contact@teasol.com",
+        "responseTime": "We antwoorden binnen twee werkdagen.",
+        "reasons": [
+            {
+                "icon": "play",
+                "title": "Boek een demo",
+                "subject": "Demo verzoek",
+                "description": "Zie het platform loopt tegen reële capaciteit gegevens, niet dia's."
+            },
+            {
+                "icon": "link",
+                "title": "Partnerschap",
+                "subject": "Partnerschapsonderzoek",
+                "description": "Exploitanten, neutrale gastheren en leveranciers die samen de beurs bouwen."
+            },
+            {
+                "icon": "star",
+                "title": "Loopbaan",
+                "subject": "Loopbaan",
+                "description": "We huren in over engineering, product- en netwerkstrategie."
+            }
+        ],
+        "offices": [
+            {
+                "city": "Eindhoven",
+                "country": "Nederland",
+                "kind": "Hoofdkantoor"
+            },
+            {
+                "city": "Istanbul",
+                "country": "Türkiye",
+                "kind": "Kantoor"
+            },
+            {
+                "city": "Sunnyvale",
+                "country": "Californië, VS",
+                "kind": "Kantoor"
+            }
+        ]
+    },
+    "ui": {
+        "eyebrowSolutions": "Oplossingen",
+        "eyebrowAbout": "Info",
+        "eyebrowContact": "Contactpersoon",
+        "whereWeWork": "Waar we werken",
+        "whereWeAre": "Waar we zijn",
+        "writeToUs": "Schrijf ons",
+        "reasonCta": "Schrijf hierover",
+        "notFoundTitle": "Pagina niet gevonden",
+        "notFoundText": "De pagina die u zoekt bestaat niet."
     }
-  ],
-  "home": {
-    "title": "Intelligent Network Sharing for the 5G/6G Era",
-    "subtitle": "AI-powered network capacity management for the intelligent network era. Help operators predict demand, allocate underutilized capacity, and unlock new revenue streams.",
-    "features": [
-      {
-        "icon": "venue",
-        "title": "Venues & Events",
-        "description": "Seamless connectivity for stadiums, concerts and festivals with slicing that scales with crowd density."
-      },
-      {
-        "icon": "city",
-        "title": "Smart Cities",
-        "description": "Reliable network sharing that supports IoT, traffic management and public safety systems."
-      },
-      {
-        "icon": "tower",
-        "title": "Telecom Infrastructure",
-        "description": "AI-powered matching and automated capacity agreements between operators."
-      },
-      {
-        "icon": "building",
-        "title": "Enterprise Networks",
-        "description": "Dedicated private networks with guaranteed performance, security and MNO integration."
-      },
-      {
-        "icon": "transport",
-        "title": "Transportation",
-        "description": "Ultra-reliable low-latency slices for autonomous driving and smart mobility."
-      },
-      {
-        "icon": "globe",
-        "title": "Global Connectivity",
-        "description": "International sharing agreements with automated roaming and capacity exchange."
-      }
-    ]
-  },
-  "solutions": {
-    "title": "Four Ways to Trade Network Capacity",
-    "subtitle": "Mobile networks are expensive to build and often sit half empty. These four products let operators share what they already have — automatically.",
-    "items": [
-      {
-        "title": "Network Sharing Exchange",
-        "description": "We predict where a network will be crowded and where it will be quiet. Then we automatically match operators who need extra capacity with those who have spare capacity — no meetings, no manual contracts."
-      },
-      {
-        "title": "Slice Exchange",
-        "description": "Some mobile brands rent their network from bigger operators. Instead of being locked into a fixed monthly amount, they can buy exactly what they need, when they need it, from more than one provider."
-      },
-      {
-        "title": "Private Network Marketplace",
-        "description": "A stadium, factory or hospital can run its own small network. When an event or a busy shift needs more, they buy extra coverage for just that period — and it works beyond their own walls."
-      },
-      {
-        "title": "Neutral Host Trading Platform",
-        "description": "A neutral middleman that connects everyone. It finds unused capacity, sets a fair price in real time, and closes the deal on its own — so idle equipment starts earning."
-      }
-    ]
-  },
-  "about": {
-    "title": "Where Spare Capacity Finds a Home",
-    "paragraphs": [
-      "TEASOL enables operators to unlock the full potential of their infrastructure through intelligent sharing and slice management solutions.",
-      "Founded by telecom veterans with 35+ years of experience in network virtualization, AI and infrastructure innovation, we are building the first fully automated network sharing exchange for the 5G/6G era."
-    ],
-    "stats": [
-      {
-        "value": "35+",
-        "label": "years of combined telecom experience"
-      },
-      {
-        "value": "3",
-        "label": "offices across Europe, Türkiye and the US"
-      },
-      {
-        "value": "5G/6G",
-        "label": "era-ready platform"
-      }
-    ]
-  },
-  "contact": {
-    "title": "Let's Talk About Your Network",
-    "subtitle": "Tell us which side of the exchange you are on — we will show you the platform against your own capacity picture.",
-    "email": "contact@teasol.com",
-    "responseTime": "We reply within two business days.",
-    "reasons": [
-      {
-        "icon": "play",
-        "title": "Book a Demo",
-        "subject": "Demo request",
-        "description": "See the platform running against real capacity data, not slides."
-      },
-      {
-        "icon": "link",
-        "title": "Partnership",
-        "subject": "Partnership enquiry",
-        "description": "Operators, neutral hosts and vendors building the exchange together."
-      },
-      {
-        "icon": "star",
-        "title": "Careers",
-        "subject": "Careers",
-        "description": "We are hiring across engineering, product and network strategy."
-      }
-    ],
-    "offices": [
-      {
-        "city": "Eindhoven",
-        "country": "Netherlands",
-        "kind": "Headquarters"
-      },
-      {
-        "city": "Istanbul",
-        "country": "Türkiye",
-        "kind": "Office"
-      },
-      {
-        "city": "Sunnyvale",
-        "country": "California, USA",
-        "kind": "Office"
-      }
-    ]
-  },
-  "ui": {
-    "eyebrowSolutions": "Solutions",
-    "eyebrowAbout": "About",
-    "eyebrowContact": "Contact",
-    "whereWeWork": "Where We Work",
-    "whereWeAre": "Where We Are",
-    "writeToUs": "Write to us",
-    "reasonCta": "Write about this",
-    "notFoundTitle": "Page not found",
-    "notFoundText": "The page you are looking for does not exist."
-  }
 }
