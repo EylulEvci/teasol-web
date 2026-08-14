@@ -260,9 +260,10 @@ function About({ site }) {
             </p>
           ))}
         </div>
-      </section>
 
-      <section className="wrap section">
+        {/* Ayri bir section degil: iki bolumun dolgulari ust uste
+            binince paragrafla baslik arasi 200 pikseli asiyordu.
+            Iletisim sayfasindaki yapiyla ayni. */}
         <h2 className="sub">{site.ui.whereWeWork}</h2>
         <div className="cities">
           {site.contact.offices.map((o, i) => (

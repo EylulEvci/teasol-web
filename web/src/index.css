@@ -618,6 +618,43 @@ h1 {
   }
 }
 
+/* Hakkimizda sayfasinda hero ile ilk paragraf arasindaki bosluk,
+   hero'nun alt dolgusu ile bolumun ust dolgusu ust uste bindigi icin
+   156 piksele cikiyordu; paragrafla alt baslik arasi ise 56'ydi.
+   Ikisi esitlendi. Alt baslik ile kendi icerigi arasindaki 20 piksel
+   bilerek dar: ikisinin birbirine ait oldugunu gosteriyor. */
+
+.p-about .hero {
+  padding-block: calc(5rem + var(--header-h)) 2rem;
+}
+
+.p-about main > .section {
+  padding-top: 2rem;
+}
+
+.p-about .sub {
+  margin-top: 5.5rem;
+}
+
+/* Iletisim sayfasi dort bloktan olusuyor: hero, e-posta karti,
+   secenek kartlari, ve "Neredeyiz" basligi + ofis kartlari.
+   Aralarindaki uc bosluk esitlendi (48px).
+   Son bloktaki baslik-kart arasi bilerek dar (24px): ikisi tek bir
+   bloga ait, esit yapilsaydi baslik ortada asili kalirdi. */
+
+.p-contact main > .section {
+  padding-top: 2.5rem;
+}
+
+.p-contact .cards,
+.p-contact .sub {
+  margin-top: 2.5rem;
+}
+
+.p-contact .cards.three {
+  margin-top: 1.5rem;
+}
+
 /* ---------- about: sehir bandi ---------- */
 
 .cities {
