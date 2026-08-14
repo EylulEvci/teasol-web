@@ -126,9 +126,20 @@ function Layout({ site, langs, lang, onLangChange, children }) {
     : pathname === '/contact' ? 'p-contact'
     : 'p-home'
 
+  // Header tepede saydam duruyor; sayfa kaydirilinca zemin kazaniyor,
+  // yoksa altindan gecen yazilarla ust uste biniyor.
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const kontrol = () => setScrolled(window.scrollY > 8)
+    kontrol()
+    window.addEventListener('scroll', kontrol, { passive: true })
+    return () => window.removeEventListener('scroll', kontrol)
+  }, [])
+
   return (
     <div className={`page ${pageClass}`}>
-      <header className="site-header">
+      <header className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
         <NavLink to="/" className="brand">
           <img src="/logo.png" alt={site.brand.name} />
         </NavLink>

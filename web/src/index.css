@@ -76,6 +76,17 @@ main > .section:first-child {
   height: var(--header-h);
   padding-inline: 2rem;
   background: transparent;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Sayfa kaydirilinca zemin kazanir. Tepedeyken saydam kalmasi
+   hero ile butunlugu koruyor; kaydirinca altindan gecen yazilarin
+   menuyle karismasini engelliyor. */
+.site-header.is-scrolled {
+  background: var(--bg);
+  box-shadow:
+    0 1px 0 rgba(10, 16, 32, 0.06),
+    0 6px 20px rgba(10, 16, 32, 0.05);
 }
 
 .brand {
