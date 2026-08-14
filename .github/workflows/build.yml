@@ -1,0 +1,99 @@
+# Her push'ta projeyi bastan derler.
+# Amac: bozuk bir commit'in fark edilmeden main dalinda durmasini onlemek.
+# Weblate ceviri commit'lerini dogrudan main'e attigi icin bu kontrol onemli.
+
+name: build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dogrula:
+    name: Derle ve dogrula
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      # Weblate icerik dosyalarini otomatik yaziyor.
+      # Bozuk bir JSON uretirse Go derlemesi calisma aninda degil,
+      # burada yakalansin.
+      - name: Icerik dosyalari gecerli JSON mu
+        run: |
+          for f in internal/content/data/site.*.json; do
+            python3 -c "import json,sys; json.load(open(sys.argv[1], encoding='utf-8'))" "$f"
+            echo "gecerli: $f"
+          done
+
+      # Her dilde ayni anahtarlar var mi?
+      # Bir dilde eksik anahtar, o dilde bos metin demek.
+      - name: Diller ayni anahtarlara sahip mi
+        run: |
+          python3 - <<'PY'
+          import json, glob, sys
+
+          def anahtarlar(nesne, onek=""):
+              yol = set()
+              if isinstance(nesne, dict):
+                  for k, v in nesne.items():
+                      yol |= anahtarlar(v, f"{onek}.{k}")
+              elif isinstance(nesne, list):
+                  for i, v in enumerate(nesne):
+                      yol |= anahtarlar(v, f"{onek}[{i}]")
+              else:
+                  yol.add(onek)
+              return yol
+
+          dosyalar = sorted(glob.glob("internal/content/data/site.*.json"))
+          kume = {f: anahtarlar(json.load(open(f, encoding="utf-8"))) for f in dosyalar}
+
+          kaynak = "internal/content/data/site.en.json"
+          hata = False
+          for f, k in kume.items():
+              eksik = kume[kaynak] - k
+              fazla = k - kume[kaynak]
+              if eksik or fazla:
+                  hata = True
+                  print(f"FARK: {f}")
+                  for a in sorted(eksik):
+                      print(f"   eksik: {a}")
+                  for a in sorted(fazla):
+                      print(f"   fazla: {a}")
+              else:
+                  print(f"uyumlu: {f} ({len(k)} anahtar)")
+
+          sys.exit(1 if hata else 0)
+          PY
+
+      # Dockerfile zaten uc asamali: once React, sonra Go, sonra alpine.
+      # Yerelde calistirdigimiz komutun aynisi.
+      - name: Docker imajini kur
+        run: docker build -t teasol-web:ci .
+
+      # Imaj gercekten calisiyor mu? Konteyneri ayaga kaldirip
+      # saglik ucuna ve iceriye bir istek atalim.
+      - name: Imaj ayaga kalkiyor mu
+        run: |
+          docker run -d --name test -p 8081:8081 teasol-web:ci
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8081/healthz > /dev/null; then
+              echo "saglik kontrolu gecti ($i. deneme)"
+              break
+            fi
+            sleep 2
+          done
+          curl -sf http://localhost:8081/healthz
+          echo
+          for dil in en nl tr; do
+            kod=$(curl -s -o /dev/null -w "%{http_code}" "http://localhost:8081/api/v1/content/site?lang=$dil")
+            echo "  $dil -> $kod"
+            test "$kod" = "200"
+          done
+          docker rm -f test
+
+      - name: Imaj boyutu
+        run: docker images teasol-web:ci --format "imaj boyutu: {{.Size}}"
