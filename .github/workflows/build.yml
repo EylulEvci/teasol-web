@@ -95,5 +95,8 @@ jobs:
           done
           docker rm -f test
 
+      # Blok yazim (|) sart: asagidaki satirda iki nokta + bosluk var,
+      # duz yazimda YAML onu yeni bir anahtar sanip dosyayi reddediyor.
       - name: Imaj boyutu
-        run: docker images teasol-web:ci --format "imaj boyutu: {{.Size}}"
+        run: |
+          docker images teasol-web:ci --format "imaj boyutu: {{.Size}}"
