@@ -43,12 +43,12 @@
             {
                 "icon": "building",
                 "title": "Bedrijfsnetwerken",
-                "description": "Dedicated private netwerken met gegarandeerde prestaties, beveiliging en MNO integratie."
+                "description": "Eigen privénetwerken met gegarandeerde prestaties, beveiliging en integratie met mobiele netwerkoperators (MNO's)."
             },
             {
                 "icon": "transport",
                 "title": "Vervoer",
-                "description": "Ultrabetrouwbare schijfjes met lage latentie voor autonoom rijden en slimme mobiliteit."
+                "description": "Ultrabetrouwbare netwerkslices met lage latentie voor autonoom rijden en slimme mobiliteit."
             },
             {
                 "icon": "globe",
@@ -63,15 +63,15 @@
         "items": [
             {
                 "title": "Network Sharing Exchange",
-                "description": "We voorspellen waar een netwerk druk zal zijn en waar het stil zal zijn. Dan matchen we automatisch operators die extra capaciteit nodig hebben met degenen die over reservecapaciteit beschikken, geen vergaderingen, geen handmatige contracten."
+                "description": "We voorspellen waar een netwerk druk zal zijn en waar het stil zal zijn. Dan matchen we automatisch operators die extra capaciteit nodig hebben met degenen die over reservecapaciteit beschikken — zonder vergaderingen of handmatige contracten."
             },
             {
                 "title": "Slice Exchange",
-                "description": "Sommige mobiele merken verhuren hun netwerk van grotere exploitanten. In plaats van opgesloten in een vast maandelijks bedrag, kunnen ze precies kopen wat ze nodig hebben, wanneer ze het nodig hebben, van meer dan één provider."
+                "description": "Sommige mobiele merken huren hun netwerk van grotere operators. In plaats van vast te zitten aan een vast maandbedrag, kunnen ze precies kopen wat ze nodig hebben, wanneer ze het nodig hebben, van meer dan één provider."
             },
             {
                 "title": "Private Network Marketplace",
-                "description": "Een stadion, fabriek of ziekenhuis kan een eigen klein netwerk runnen. Wanneer een evenement of een drukke shift meer nodig heeft, kopen ze extra dekking voor net die periode en het werkt buiten hun eigen muren."
+                "description": "Een stadion, fabriek of ziekenhuis kan een eigen klein netwerk beheren. Wanneer een evenement of een drukke dienst meer nodig heeft, kopen ze extra dekking voor precies die periode — en die reikt tot buiten hun eigen grenzen."
             },
             {
                 "title": "Neutral Host Trading Platform",
