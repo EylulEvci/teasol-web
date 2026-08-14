@@ -89,6 +89,20 @@ func spaHandler(fsys fs.FS) http.Handler {
 
 		if _, err := fs.Stat(fsys, name); err != nil {
 			r.URL.Path = "/"
+			name = "index.html"
+		}
+
+		// assets/ altındaki dosya adları içeriğin özetini taşır
+		// (index-DXYHangt.css gibi). İçerik değişirse ad da değişir,
+		// o yüzden bu dosyalar süresiz önbelleğe alınabilir.
+		//
+		// index.html ise her seferinde doğrulanmalı: içindeki dosya
+		// adları her derlemede değiştiği için eski bir kopya, artık
+		// var olmayan bir CSS dosyasını işaret eder.
+		if strings.HasPrefix(name, "assets/") {
+			w.Header().Set("Cache-Control", "public, max-age=31536000, immutable")
+		} else {
+			w.Header().Set("Cache-Control", "no-cache")
 		}
 
 		fileServer.ServeHTTP(w, r)

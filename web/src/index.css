@@ -19,6 +19,10 @@
 
 html {
   background-color: var(--surface);
+  /* Sayfa sonuna gelince tarayicinin esneme (rubber-band) hareketini
+     kapatir. Esnerken arkadaki html arka plani gorunuyor ve sayfanin
+     ustunde farkli renkte bir serit gibi algilaniyordu. */
+  overscroll-behavior-y: none;
 }
 
 body {
@@ -567,7 +571,9 @@ h1 {
 /* ---------- footer ---------- */
 
 .site-footer {
-  border-top: 1px solid var(--line);
+  /* Ust cizgi bilerek yok: main'in degradesi zaten --surface ile
+     bitiyor, footer da ayni renkte. Cizgi olunca aradaki gecis
+     gorunur bir dikise donusuyordu. */
   background: var(--surface);
   padding: 2rem;
   text-align: center;
@@ -581,7 +587,10 @@ h1 {
 
 /* ---------- gecis animasyonu ---------- */
 
-.hero,
+/* Hero bilerek disarida: animasyonun baslangic hali onu 8px asagi
+   kaydiriyordu ve sayfanin tepesinde html arka planinin gorundugu
+   bir serit birakiyordu. Zaten ilk bakista gorulen bolum, animasyona
+   ihtiyaci yok. */
 .section,
 .stats-band {
   animation: fadeUp 0.35s ease-out both;
@@ -706,7 +715,11 @@ h1 {
 
 /* home sayfasinda izgara tum sayfaya yayilsin */
 
-.p-home main {
+/* Izgara ve degrade artik main'de degil, sayfanin tamaminda.
+   Boylece footer da ayni zemini paylasiyor ve aradaki sinir kayboluyor.
+   Izgaranin baslangici hero'nunkiyle ayni noktada (sayfanin tepesi),
+   o yuzden ikisi hizali devam ediyor. */
+.p-home {
   background-image:
     linear-gradient(to right, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(10, 16, 32, 0.05) 1px, transparent 1px),
@@ -715,4 +728,10 @@ h1 {
     4rem 4rem,
     4rem 4rem,
     100% 100%;
+}
+
+/* Sayfa zemini gorunsun diye ustteki katmanlar saydamlasiyor */
+.p-home main,
+.p-home .site-footer {
+  background: transparent;
 }
